@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dealership.Domain.Entities
 {
-    class Car
+    public class Car
     {
+        public int CarId { get; set; }
+        public CarBrand Brand { get; set; }
+        public CarModel Model { get; set; }
+        public byte[] Image { get; set; }
     }
 }

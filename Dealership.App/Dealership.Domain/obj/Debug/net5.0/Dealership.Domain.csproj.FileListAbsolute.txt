@@ -1,0 +1,12 @@
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\bin\Debug\net5.0\Dealership.Domain.deps.json
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\bin\Debug\net5.0\Dealership.Domain.dll
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\bin\Debug\net5.0\ref\Dealership.Domain.dll
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\bin\Debug\net5.0\Dealership.Domain.pdb
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.csproj.AssemblyReference.cache
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.AssemblyInfoInputs.cache
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.AssemblyInfo.cs
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.dll
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\ref\Dealership.Domain.dll
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.Domain\obj\Debug\net5.0\Dealership.Domain.pdb

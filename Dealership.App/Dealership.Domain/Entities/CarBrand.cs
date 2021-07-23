@@ -10,5 +10,6 @@ namespace Dealership.Domain.Entities
     {
         public int CarBrandId { get; set; }
         public string CarBrandName { get; set; }
+        public List<Car> Cars { get; set; }
     }
 }
