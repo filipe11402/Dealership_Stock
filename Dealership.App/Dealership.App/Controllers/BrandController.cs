@@ -21,6 +21,7 @@ namespace Dealership.App.Controllers
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
         }
+
         public async Task<IActionResult> Index()
         {
             IEnumerable<BrandViewModel> carBrands = await this._mediator.Send(new GetBrandsQuery());
@@ -28,10 +29,16 @@ namespace Dealership.App.Controllers
             return View(carBrands);
         }
 
-        public async Task<IActionResult> Create(CreateBrandViewModel newBrand) 
+        public IActionResult Create() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePost(CreateBrandViewModel newBrand) 
         {
             var response = await _mediator.Send(new CreateBrandCommand(newBrand));
-            if(response) 
+            if (response)
             {
                 this._unitOfWork.Commit();
             }

@@ -22,6 +22,7 @@ namespace Dealership.App.Mediator.Handlers
             this._unitOfWOrk = unitOfWork;
             this._mapper = mapper;
         }
+
         public async Task<bool> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
             CarBrand newbrand = _mapper.Map<CarBrand>(request.Brand);

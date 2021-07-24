@@ -9,6 +9,5 @@ namespace Dealership.App.Models
     public class BaseBrandModel
     {
         public string CarBrandName { get; set; }
-        public List<CarModel> Cars { get; set; }
     }
 }

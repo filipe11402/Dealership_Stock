@@ -6,23 +6,26 @@
             <h5>Feeds</h5>
             @if (Model.Count() > 0)
             {
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Car brand</th>
+                            <th scope="col">Car brands</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for (var counter = 0; counter < Model.Count(); counter++)
+                        @foreach(var brand in Model)
                         {
                             <tr>
-                                <th scope="row">@Model.ToList()[counter].CarBrandName</th>
+                                <td scope="row">@brand.CarBrandName</td>
                             </tr>
                         }
                     </tbody>
                 </table>
             }
+            else
+            {
             <p>No Data in Db</p>
+            }
         </div>
     </div>
 </div>
