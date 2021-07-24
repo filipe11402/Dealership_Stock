@@ -10,6 +10,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Car brands</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -17,6 +18,7 @@
                         {
                             <tr>
                                 <td scope="row">@brand.CarBrandName</td>
+                                <td><a asp-action="Update" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-primary mx1">Edit</a></td>
                             </tr>
                         }
                     </tbody>

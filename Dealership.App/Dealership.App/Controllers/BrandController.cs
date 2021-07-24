@@ -45,5 +45,25 @@ namespace Dealership.App.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Update(int? Id)
+        {
+            BrandViewModel brand = await this._mediator.Send(new GetBrandQuery(Id));
+
+            return View(brand);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePost(BrandViewModel updatedBrand) 
+        {
+            var response = await this._mediator.Send(new UpdateBrandCommand(updatedBrand));
+            if (response) 
+            {
+                this._unitOfWork.Commit();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Update");
+        }
     }
 }

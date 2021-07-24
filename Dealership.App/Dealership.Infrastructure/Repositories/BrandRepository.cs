@@ -34,14 +34,16 @@ namespace Dealership.Infrastructure.Repositories
             return this._dealershipDb.Brands;
         }
 
-        public async Task<CarBrand> GetById(int tId)
+        public async Task<CarBrand> GetById(int? brandId)
         {
-            throw new NotImplementedException();
+            return await this._dealershipDb.Brands.FindAsync(brandId);
         }
 
-        public async Task<bool> Update(CarBrand updatedT)
+        public bool Update(CarBrand updatedT)
         {
-            throw new NotImplementedException();
+            var response = this._dealershipDb.Brands.Update(updatedT);
+
+            return true;
         }
     }
 }

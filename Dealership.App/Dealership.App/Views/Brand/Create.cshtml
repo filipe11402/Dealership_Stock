@@ -1,9 +1,9 @@
 ﻿@model Dealership.App.Models.CreateBrandViewModel
 
-<form asp-action="CreatePost" method="POST">
+<form asp-action="UpdatePost" method="POST">
     <div class="form-group">
-        <label for="exampleInputEmail1">Brand Name</label>
-        <input asp-for="CarBrandName" class="form-control col-4" id="exampleInputEmail1" placeholder="Enter Car Brand name">
+        <label for="BrandName">Brand Name</label>
+        <input asp-for="CarBrandName" class="form-control col-4" id="BrandName" placeholder="Enter Car Brand name">
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
 </form>

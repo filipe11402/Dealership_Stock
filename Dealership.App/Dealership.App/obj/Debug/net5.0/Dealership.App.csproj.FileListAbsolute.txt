@@ -76,3 +76,4 @@ C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\bin\Debug\net5.0\MediatR.dll
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\Brand\Update.cshtml.g.cs
