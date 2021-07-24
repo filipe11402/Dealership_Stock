@@ -8,10 +8,10 @@ namespace Dealership.Domain.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        public IEnumerable<T> GetAll();
-        public T Add(T newT);
-        public T GetById(int tId);
-        public T Update(T updatedT);
-        public bool Delete(int tId);
+        public Task<IEnumerable<T>> GetAll();
+        public Task<bool> Add(T newT);
+        public Task<T> GetById(int tId);
+        public Task<bool> Update(T updatedT);
+        public Task<bool> Delete(int tId);
     }
 }

@@ -1,3 +1,6 @@
+using AutoMapper;
+using Dealership.App.Models;
+using Dealership.Domain.Entities;
 using Dealership.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -26,9 +29,14 @@ namespace Dealership.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mapperConfiguration = new MapperConfiguration(cfg => {
+                cfg.CreateMap<CreateBrandViewModel, CarBrand>();
+            });
+
             services.AddControllersWithViews();
             services.AddInfrastructure();
-            services.AddMediatR(typeof(Startup).Assembly);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

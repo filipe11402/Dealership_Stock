@@ -1,4 +1,5 @@
-﻿using Dealership.Domain.Entities;
+﻿using Dealership.App.Models;
+using Dealership.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ namespace Dealership.App.Mediator.Commands
 {
     public class CreateBrandCommand : IRequest<bool>
     {
-        public CarBrand Brand { get; }
+        public CreateBrandViewModel Brand { get; }
 
-        public CreateBrandCommand(CarBrand carBrand)
+        public CreateBrandCommand(CreateBrandViewModel carBrand)
         {
             this.Brand = carBrand;
         }

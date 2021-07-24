@@ -1,4 +1,6 @@
 ﻿using Dealership.Domain;
+using Dealership.Domain.Entities;
+using Dealership.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +11,35 @@ namespace Dealership.Infrastructure.Repositories
 {
     public class BrandRepository : IBrandRepository
     {
-        public IBrandRepository Add(IBrandRepository newT)
+        private readonly ApplicationDbContext _dealershipDb;
+
+        public BrandRepository(ApplicationDbContext dealershipDb)
+        {
+            this._dealershipDb = dealershipDb;
+        }
+
+        public async Task<bool> Add(CarBrand newBrand)
+        {
+           await this._dealershipDb.AddAsync(newBrand);
+            return true;
+        }
+
+        public async Task<bool> Delete(int brandId)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int tId)
+        public async Task<IEnumerable<CarBrand>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IBrandRepository> GetAll()
+        public async Task<CarBrand> GetById(int tId)
         {
             throw new NotImplementedException();
         }
 
-        public IBrandRepository GetById(int tId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IBrandRepository Update(IBrandRepository updatedT)
+        public async Task<bool> Update(CarBrand updatedT)
         {
             throw new NotImplementedException();
         }
