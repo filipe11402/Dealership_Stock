@@ -31,8 +31,11 @@ namespace Dealership.App
         {
             var mapperConfiguration = new MapperConfiguration(cfg => {
                 cfg.CreateMap<CreateBrandViewModel, CarBrand>();
+                cfg.CreateMap<BrandViewModel, CarBrand>();
             });
 
+            IMapper mapper = mapperConfiguration.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddControllersWithViews();
             services.AddInfrastructure();
             services.AddMediatR(Assembly.GetExecutingAssembly());

@@ -24,7 +24,7 @@ namespace Dealership.App.Mediator.Handlers
         }
         public async Task<bool> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
-            CarBrand newbrand = _mapper.Map<CreateBrandViewModel, CarBrand>(request.Brand);
+            CarBrand newbrand = _mapper.Map<CarBrand>(request.Brand);
             var response = await this._unitOfWOrk.Brands.Add(newbrand);
 
             return response;

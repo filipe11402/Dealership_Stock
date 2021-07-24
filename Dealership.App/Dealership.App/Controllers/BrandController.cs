@@ -1,4 +1,5 @@
 ﻿using Dealership.App.Mediator.Commands;
+using Dealership.App.Mediator.Queries;
 using Dealership.App.Models;
 using Dealership.Domain.Interfaces;
 using MediatR;
@@ -20,9 +21,11 @@ namespace Dealership.App.Controllers
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IEnumerable<BrandViewModel> carBrands = await this._mediator.Send(new GetBrandsQuery());
+
+            return View(carBrands);
         }
 
         public async Task<IActionResult> Create(CreateBrandViewModel newBrand) 

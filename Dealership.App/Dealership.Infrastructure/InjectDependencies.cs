@@ -1,4 +1,8 @@
-﻿using Dealership.Infrastructure.Context;
+﻿using Dealership.Domain;
+using Dealership.Domain.Entities;
+using Dealership.Domain.Interfaces;
+using Dealership.Infrastructure.Context;
+using Dealership.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +20,10 @@ namespace Dealership.Infrastructure
             services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseSqlite(@"Data Source=C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.db")   
             );
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<IRepository<CarBrand>, BrandRepository>();
         }
     }
 }

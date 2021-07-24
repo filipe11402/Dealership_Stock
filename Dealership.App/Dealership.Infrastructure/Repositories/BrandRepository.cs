@@ -31,7 +31,7 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<IEnumerable<CarBrand>> GetAll()
         {
-            throw new NotImplementedException();
+            return this._dealershipDb.Brands;
         }
 
         public async Task<CarBrand> GetById(int tId)
