@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dealership.Domain.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Dealership.Domain.Interfaces
     public interface IUnitOfWork
     {
         IBrandRepository Brands { get; }
+        ICarModelRepository Models { get; }
         int Commit();
     }
 }

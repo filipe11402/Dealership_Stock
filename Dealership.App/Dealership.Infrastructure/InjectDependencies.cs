@@ -1,6 +1,7 @@
 ﻿using Dealership.Domain;
 using Dealership.Domain.Entities;
 using Dealership.Domain.Interfaces;
+using Dealership.Domain.Repositories;
 using Dealership.Infrastructure.Context;
 using Dealership.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,7 @@ namespace Dealership.Infrastructure
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBrandRepository, BrandRepository>();
-            services.AddScoped<IRepository<CarBrand>, BrandRepository>();
+            services.AddScoped<ICarModelRepository, CarModelRepository>();
         }
     }
 }

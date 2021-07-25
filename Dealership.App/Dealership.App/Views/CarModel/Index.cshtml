@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Dealership.App.Models.CarModel.CarModelViewModel>
+
+<div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-twothird">
+            <h5>Car Models Available</h5>
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Car Models</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var carModel in Model)
+                        {
+                            <tr>
+                                <td scope="row">@carModel.CarModelName</td>
+                                <td><a asp-action="" asp-controller="Brand" asp-route-Id="" class="btn btn-primary mx1">Edit</a></td>
+                                <td><a asp-action="" asp-controller="Brand" asp-route-Id="" class="btn btn-danger mx1">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No Data in Db</p>
+            }
+        </div>
+    </div>
+</div>
+<hr>

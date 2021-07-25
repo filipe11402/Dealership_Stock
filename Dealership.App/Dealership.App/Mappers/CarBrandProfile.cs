@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Dealership.App.Models;
+using Dealership.App.Models.CarBrand;
 using Dealership.Domain.Entities;
 using System;
 using System.Collections.Generic;

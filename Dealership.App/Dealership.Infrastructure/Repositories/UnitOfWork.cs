@@ -1,5 +1,6 @@
 ﻿using Dealership.Domain;
 using Dealership.Domain.Interfaces;
+using Dealership.Domain.Repositories;
 using Dealership.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,13 @@ namespace Dealership.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         public IBrandRepository Brands { get; }
+        public ICarModelRepository Models { get; }
         private readonly ApplicationDbContext _DealershipDb;
 
-        public UnitOfWork(IBrandRepository brands, ApplicationDbContext dealershipDb)
+        public UnitOfWork(IBrandRepository brands, ICarModelRepository models, ApplicationDbContext dealershipDb)
         {
             this.Brands = brands;
+            this.Models = models;
             this._DealershipDb = dealershipDb;
         }
 

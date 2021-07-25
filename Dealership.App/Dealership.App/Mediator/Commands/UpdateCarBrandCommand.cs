@@ -1,4 +1,4 @@
-﻿using Dealership.App.Models;
+﻿using Dealership.App.Models.CarBrand;
 using MediatR;
 using System;
 using System.Collections.Generic;

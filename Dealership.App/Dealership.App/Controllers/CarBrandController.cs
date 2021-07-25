@@ -1,6 +1,6 @@
 ﻿using Dealership.App.Mediator.Commands;
 using Dealership.App.Mediator.Queries;
-using Dealership.App.Models;
+using Dealership.App.Models.CarBrand;
 using Dealership.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +24,7 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<CarBrandViewModel> carBrands = await this._mediator.Send(new GetBrandsQuery());
+            IEnumerable<CarBrandViewModel> carBrands = await this._mediator.Send(new GetCarBrandsQuery());
 
             return View(carBrands);
         }
@@ -48,7 +48,7 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Update(int? Id)
         {
-            CarBrandViewModel brand = await this._mediator.Send(new GetBrandQuery(Id));
+            CarBrandViewModel brand = await this._mediator.Send(new GetCarBrandQuery(Id));
 
             return View(brand);
         }
@@ -68,7 +68,7 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Delete(int Id) 
         {
-            CarBrandViewModel brandToDelete = await this._mediator.Send(new GetBrandQuery(Id));
+            CarBrandViewModel brandToDelete = await this._mediator.Send(new GetCarBrandQuery(Id));
 
             return View(brandToDelete);
         }

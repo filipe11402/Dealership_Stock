@@ -1,4 +1,4 @@
-﻿using Dealership.App.Models;
+﻿using Dealership.App.Models.CarBrand;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Queries
 {
-    public class GetBrandQuery : IRequest<CarBrandViewModel>
+    public class GetCarBrandQuery : IRequest<CarBrandViewModel>
     {
         public int? CarBrandId { get; set; }
 
-        public GetBrandQuery(int? carBrandId)
+        public GetCarBrandQuery(int? carBrandId)
         {
             this.CarBrandId = carBrandId;
         }

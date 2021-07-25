@@ -1,4 +1,4 @@
-﻿using Dealership.App.Models;
+﻿using Dealership.App.Models.CarBrand;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Queries
 {
-    public class GetBrandsQuery : IRequest<IEnumerable<CarBrandViewModel>>
+    public class GetCarBrandsQuery : IRequest<IEnumerable<CarBrandViewModel>>
     {
     }
 }

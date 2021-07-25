@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Dealership.App.Models.BrandViewModel>
+﻿@model IEnumerable<Dealership.App.Models.CarBrand.CarBrandViewModel>
 
 <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
@@ -18,8 +18,8 @@
                         {
                         <tr>
                             <td scope="row">@brand.CarBrandName</td>
-                            <td><a asp-action="Update" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-primary mx1">Edit</a></td>
-                            <td><a asp-action="Delete" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-danger mx1">Delete</a></td>
+                            <td><a asp-action="Update" asp-controller="CarBrand" asp-route-Id="@brand.CarBrandId" class="btn btn-primary mx1">Edit</a></td>
+                            <td><a asp-action="Delete" asp-controller="CarBrand" asp-route-Id="@brand.CarBrandId" class="btn btn-danger mx1">Delete</a></td>
                         </tr>
                         }
                     </tbody>
