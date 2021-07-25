@@ -1,4 +1,5 @@
-﻿using Dealership.App.Mediator.Queries;
+﻿using Dealership.App.Mediator.Commands;
+using Dealership.App.Mediator.Queries;
 using Dealership.App.Models.CarModel;
 using Dealership.Domain.Interfaces;
 using MediatR;
@@ -26,6 +27,24 @@ namespace Dealership.App.Controllers
             IEnumerable<CarModelViewModel> models = await this._mediator.Send(new GetCarModelsQuery());
 
             return View(models);
+        }
+
+        public IActionResult Create() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePost(CreateCarModelViewModel newCarModel) 
+        {
+            var response = await this._mediator.Send(new CreateCarModelCommand(newCarModel));
+            if (response) 
+            {
+                this._unitOfWork.Commit();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Create", new { newCarModel = newCarModel });
         }
     }
 }
