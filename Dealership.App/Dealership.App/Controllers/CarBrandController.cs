@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Controllers
 {
-    public class BrandController : Controller
+    public class CarBrandController : Controller
     {
         private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
 
-        public BrandController(IMediator mediator, IUnitOfWork unitOfWork)
+        public CarBrandController(IMediator mediator, IUnitOfWork unitOfWork)
         {
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
@@ -24,7 +24,7 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<BrandViewModel> carBrands = await this._mediator.Send(new GetBrandsQuery());
+            IEnumerable<CarBrandViewModel> carBrands = await this._mediator.Send(new GetBrandsQuery());
 
             return View(carBrands);
         }
@@ -35,9 +35,9 @@ namespace Dealership.App.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(CreateBrandViewModel newBrand) 
+        public async Task<IActionResult> CreatePost(CreateCarBrandViewModel newBrand) 
         {
-            var response = await _mediator.Send(new CreateBrandCommand(newBrand));
+            var response = await _mediator.Send(new CreateCarBrandCommand(newBrand));
             if (response)
             {
                 this._unitOfWork.Commit();
@@ -48,15 +48,15 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Update(int? Id)
         {
-            BrandViewModel brand = await this._mediator.Send(new GetBrandQuery(Id));
+            CarBrandViewModel brand = await this._mediator.Send(new GetBrandQuery(Id));
 
             return View(brand);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdatePost(BrandViewModel updatedBrand) 
+        public async Task<IActionResult> UpdatePost(CarBrandViewModel updatedBrand) 
         {
-            var response = await this._mediator.Send(new UpdateBrandCommand(updatedBrand));
+            var response = await this._mediator.Send(new UpdateCarBrandCommand(updatedBrand));
             if (response) 
             {
                 this._unitOfWork.Commit();
@@ -68,7 +68,7 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Delete(int Id) 
         {
-            BrandViewModel brandToDelete = await this._mediator.Send(new GetBrandQuery(Id));
+            CarBrandViewModel brandToDelete = await this._mediator.Send(new GetBrandQuery(Id));
 
             return View(brandToDelete);
         }
@@ -76,7 +76,7 @@ namespace Dealership.App.Controllers
         [HttpPost]
         public async Task<IActionResult> DeletePost(int CarBrandId) 
         {
-            var deleteResponse = await this._mediator.Send(new DeleteBrandCommand(CarBrandId));
+            var deleteResponse = await this._mediator.Send(new DeleteCarBrandCommand(CarBrandId));
 
             if (deleteResponse) 
             {

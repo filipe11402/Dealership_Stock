@@ -18,22 +18,22 @@ namespace Dealership.Infrastructure.Repositories
             this._dealershipDb = dealershipDb;
         }
 
-        public async Task<bool> Add(CarBrand newBrand)
+        public async Task<bool> Add(CarBrand newCarBrand)
         {
-           await this._dealershipDb.AddAsync(newBrand);
+           await this._dealershipDb.AddAsync(newCarBrand);
             return true;
         }
 
-        public async Task<bool> Delete(int brandId)
+        public async Task<bool> Delete(int carBrandId)
         {
-            var brandDto = await this._dealershipDb.Brands.FindAsync(brandId);
+            var carBrandDto = await this._dealershipDb.Brands.FindAsync(carBrandId);
 
-            if (brandDto == null) 
+            if (carBrandDto == null) 
             {
                 return false;
             }
 
-            this._dealershipDb.Brands.Remove(brandDto);
+            this._dealershipDb.Brands.Remove(carBrandDto);
 
             return true;
         }
@@ -43,14 +43,14 @@ namespace Dealership.Infrastructure.Repositories
             return this._dealershipDb.Brands;
         }
 
-        public async Task<CarBrand> GetById(int? brandId)
+        public async Task<CarBrand> GetById(int? carBrandId)
         {
-            return await this._dealershipDb.Brands.FindAsync(brandId);
+            return await this._dealershipDb.Brands.FindAsync(carBrandId);
         }
 
-        public bool Update(CarBrand updatedT)
+        public bool Update(CarBrand updatedCarBrand)
         {
-            var response = this._dealershipDb.Brands.Update(updatedT);
+            var response = this._dealershipDb.Brands.Update(updatedCarBrand);
 
             return true;
         }

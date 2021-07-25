@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Queries
 {
-    public class GetBrandsQuery : IRequest<IEnumerable<BrandViewModel>>
+    public class GetBrandsQuery : IRequest<IEnumerable<CarBrandViewModel>>
     {
     }
 }

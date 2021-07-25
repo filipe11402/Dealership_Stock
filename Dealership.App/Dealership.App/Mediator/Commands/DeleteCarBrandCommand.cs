@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Commands
 {
-    public class DeleteBrandCommand : IRequest<bool>
+    public class DeleteCarBrandCommand : IRequest<bool>
     {
         public int CarBrandId { get; }
 
-        public DeleteBrandCommand(int carBrandId)
+        public DeleteCarBrandCommand(int carBrandId)
         {
             this.CarBrandId = carBrandId;
         }

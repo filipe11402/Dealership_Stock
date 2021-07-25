@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Queries
 {
-    public class GetBrandQuery : IRequest<BrandViewModel>
+    public class GetBrandQuery : IRequest<CarBrandViewModel>
     {
-        public int? BrandId { get; set; }
+        public int? CarBrandId { get; set; }
 
-        public GetBrandQuery(int? brandId)
+        public GetBrandQuery(int? carBrandId)
         {
-            this.BrandId = brandId;
+            this.CarBrandId = carBrandId;
         }
     }
 }

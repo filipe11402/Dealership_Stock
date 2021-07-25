@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Commands
 {
-    public class CreateBrandCommand : IRequest<bool>
+    public class CreateCarBrandCommand : IRequest<bool>
     {
-        public CreateBrandViewModel Brand { get; }
+        public CreateCarBrandViewModel CarBrand { get; }
 
-        public CreateBrandCommand(CreateBrandViewModel carBrand)
+        public CreateCarBrandCommand(CreateCarBrandViewModel carBrand)
         {
-            this.Brand = carBrand;
+            this.CarBrand = carBrand;
         }
     }
 }

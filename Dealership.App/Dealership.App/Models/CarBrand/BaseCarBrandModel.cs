@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Models
 {
-    public class BaseBrandModel
+    public class BaseCarBrandModel
     {
         public string CarBrandName { get; set; }
     }

@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Models
 {
-    public class BrandViewModel : BaseBrandModel
+    public class CreateCarBrandViewModel : BaseCarBrandModel
     {
-        public int CarBrandId { get; set; }
     }
 }

@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Handlers
 {
-    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, bool>
+    public class CreateCarBrandCommandHandler : IRequestHandler<CreateCarBrandCommand, bool>
     {
         private readonly IUnitOfWork _unitOfWOrk;
         private readonly IMapper _mapper;
 
-        public CreateBrandCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public CreateCarBrandCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._unitOfWOrk = unitOfWork;
             this._mapper = mapper;
         }
 
-        public async Task<bool> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreateCarBrandCommand request, CancellationToken cancellationToken)
         {
-            CarBrand newbrand = _mapper.Map<CarBrand>(request.Brand);
+            CarBrand newbrand = _mapper.Map<CarBrand>(request.CarBrand);
             var response = await this._unitOfWOrk.Brands.Add(newbrand);
 
             return response;

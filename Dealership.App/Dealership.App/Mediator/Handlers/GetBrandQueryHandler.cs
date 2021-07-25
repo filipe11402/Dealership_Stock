@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Handlers
 {
-    public class GetBrandQueryHandler : IRequestHandler<GetBrandQuery, BrandViewModel>
+    public class GetBrandQueryHandler : IRequestHandler<GetBrandQuery, CarBrandViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -23,12 +23,12 @@ namespace Dealership.App.Mediator.Handlers
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<BrandViewModel> Handle(GetBrandQuery request, CancellationToken cancellationToken)
+        public async Task<CarBrandViewModel> Handle(GetBrandQuery request, CancellationToken cancellationToken)
         {
-            CarBrand brand = await this._unitOfWork.Brands.GetById(request.BrandId);
-            BrandViewModel brandToView = this._mapper.Map<BrandViewModel>(brand);
+            CarBrand carbrand = await this._unitOfWork.Brands.GetById(request.CarBrandId);
+            CarBrandViewModel carBrandToView = this._mapper.Map<CarBrandViewModel>(carbrand);
 
-            return brandToView;
+            return carBrandToView;
         }
     }
 }
