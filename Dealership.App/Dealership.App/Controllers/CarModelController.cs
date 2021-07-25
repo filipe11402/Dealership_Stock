@@ -44,7 +44,7 @@ namespace Dealership.App.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Create", new { newCarModel = newCarModel });
+            return RedirectToAction("Create");
         }
 
         public async Task<IActionResult> Update(int Id) 
@@ -56,6 +56,19 @@ namespace Dealership.App.Controllers
             }
 
             return View(carModelToUpdate);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePost(CarModelViewModel updatedCarModel) 
+        {
+            var response = await this._mediator.Send(new UpdateCarModelCommand(updatedCarModel));
+            if (response)
+            {
+                this._unitOfWork.Commit();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Update");
         }
     }
 }

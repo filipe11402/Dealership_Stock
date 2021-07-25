@@ -18,6 +18,10 @@ namespace Dealership.App.Mappers
 
             CreateMap<CreateCarModelViewModel, CarModel>()
                 .ForMember(d => d.CarModelName, (o) => o.MapFrom(src => src.CarModelName));
+
+            CreateMap<CarModelViewModel, CarModel>()
+                .ForMember(d => d.CarModelId, (o) => o.MapFrom(src => src.CarModelId))
+                .ForMember(d => d.CarModelName, (o) => o.MapFrom(src => src.CarModelName));
         }
     }
 }
