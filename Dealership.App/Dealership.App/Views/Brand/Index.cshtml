@@ -14,12 +14,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var brand in Model)
+                        @foreach (var brand in Model)
                         {
-                            <tr>
-                                <td scope="row">@brand.CarBrandName</td>
-                                <td><a asp-action="Update" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-primary mx1">Edit</a></td>
-                            </tr>
+                        <tr>
+                            <td scope="row">@brand.CarBrandName</td>
+                            <td><a asp-action="Update" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-primary mx1">Edit</a></td>
+                            <td><a asp-action="Delete" asp-controller="Brand" asp-route-Id="@brand.CarBrandId" class="btn btn-danger mx1">Delete</a></td>
+                        </tr>
                         }
                     </tbody>
                 </table>

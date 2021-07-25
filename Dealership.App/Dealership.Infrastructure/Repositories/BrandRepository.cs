@@ -26,7 +26,16 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<bool> Delete(int brandId)
         {
-            throw new NotImplementedException();
+            var brandDto = await this._dealershipDb.Brands.FindAsync(brandId);
+
+            if (brandDto == null) 
+            {
+                return false;
+            }
+
+            this._dealershipDb.Brands.Remove(brandDto);
+
+            return true;
         }
 
         public async Task<IEnumerable<CarBrand>> GetAll()

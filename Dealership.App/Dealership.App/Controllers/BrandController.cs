@@ -65,5 +65,25 @@ namespace Dealership.App.Controllers
 
             return RedirectToAction("Update");
         }
+
+        public async Task<IActionResult> Delete(int Id) 
+        {
+            BrandViewModel brandToDelete = await this._mediator.Send(new GetBrandQuery(Id));
+
+            return View(brandToDelete);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(int CarBrandId) 
+        {
+            var deleteResponse = await this._mediator.Send(new DeleteBrandCommand(CarBrandId));
+
+            if (deleteResponse) 
+            {
+                this._unitOfWork.Commit();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

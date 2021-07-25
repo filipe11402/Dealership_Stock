@@ -9,7 +9,7 @@ namespace Dealership.App.Mediator.Commands
 {
     public class UpdateBrandCommand : IRequest<bool>
     {
-        public BrandViewModel UpdatedBrand { get; set; }
+        public BrandViewModel UpdatedBrand { get; }
 
         public UpdateBrandCommand(BrandViewModel updatedBrand)
         {
