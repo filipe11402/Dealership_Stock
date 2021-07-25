@@ -46,5 +46,16 @@ namespace Dealership.App.Controllers
 
             return RedirectToAction("Create", new { newCarModel = newCarModel });
         }
+
+        public async Task<IActionResult> Update(int Id) 
+        {
+            CarModelViewModel carModelToUpdate = await this._mediator.Send(new GetCarModelQuery(Id));
+            if (carModelToUpdate == null) 
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(carModelToUpdate);
+        }
     }
 }
