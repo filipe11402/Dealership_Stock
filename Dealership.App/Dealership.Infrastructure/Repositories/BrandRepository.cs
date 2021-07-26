@@ -31,7 +31,7 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<bool> Delete(int carBrandId)
         {
-            var carBrandDto = await this._dealershipDb.Brands.FindAsync(carBrandId);
+            var carBrandDto = await GetById(carBrandId);
 
             if (carBrandDto == null) 
             {

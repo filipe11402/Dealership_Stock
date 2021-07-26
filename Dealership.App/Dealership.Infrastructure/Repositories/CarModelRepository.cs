@@ -31,8 +31,12 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<bool> Delete(int carModelId)
         {
-            CarModel carModelToDelete = await GetById(carModelId);
-            var response = this._dealershipDb.Models.Remove(carModelToDelete);
+            CarModel carModelDto = await GetById(carModelId);
+            if (carModelDto == null) 
+            {
+                return false;
+            }
+            var response = this._dealershipDb.Models.Remove(carModelDto);
 
             return true;
         }
