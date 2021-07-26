@@ -81,3 +81,4 @@ C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\CarModel\Index.cshtml.g.cs
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\CarModel\Create.cshtml.g.cs
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\CarModel\Update.cshtml.g.cs
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\CarModel\Delete.cshtml.g.cs

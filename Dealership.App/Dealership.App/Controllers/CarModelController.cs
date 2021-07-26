@@ -70,5 +70,25 @@ namespace Dealership.App.Controllers
 
             return RedirectToAction("Update");
         }
+
+        public async Task<IActionResult> Delete(int Id)
+        {
+            CarModelViewModel carModelToDelete = await this._mediator.Send(new GetCarModelQuery(Id));
+            if (carModelToDelete == null) 
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(carModelToDelete);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(int CarModelId) 
+        {
+            var response = await this._mediator.Send(new DeleteCarModelCommand(CarModelId));
+            this._unitOfWork.Commit();
+
+            return RedirectToAction("Index");
+        }
     }
 }

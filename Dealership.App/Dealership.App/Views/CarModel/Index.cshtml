@@ -20,7 +20,7 @@
                             <tr>
                                 <td scope="row">@carModel.CarModelName</td>
                                 <td><a asp-action="Update" asp-controller="CarModel" asp-route-Id="@carModel.CarModelId" class="btn btn-primary mx1">Edit</a></td>
-                                <td><a asp-action="" asp-controller="CarModel" asp-route-Id="" class="btn btn-danger mx1">Delete</a></td>
+                                <td><a asp-action="Delete" asp-controller="CarModel" asp-route-Id="@carModel.CarModelId" class="btn btn-danger mx1">Delete</a></td>
                             </tr>
                         }
                     </tbody>
