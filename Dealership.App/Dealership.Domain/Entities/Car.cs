@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace Dealership.Domain.Entities
         public int CarId { get; set; }
         public CarBrand Brand { get; set; }
         public CarModel Model { get; set; }
-        public byte[] Image { get; set; }
+        public string ImageName { get; set; }
     }
 }

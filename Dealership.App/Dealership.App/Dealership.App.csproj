@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Dealership.Infrastructure\Dealership.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Car\" />
+  </ItemGroup>
+
 </Project>
