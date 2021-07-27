@@ -25,6 +25,7 @@ namespace Dealership.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<ICarModelRepository, CarModelRepository>();
+            services.AddScoped<ICarRepository, CarRepository>();
         }
     }
 }

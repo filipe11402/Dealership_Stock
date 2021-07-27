@@ -32,7 +32,8 @@ namespace Dealership.App
         {
             services.AddAutoMapper(
                 typeof(CarBrandProfile),
-                typeof(CarModelProfile)
+                typeof(CarModelProfile),
+                typeof(CarProfile)
                 );
             services.AddControllersWithViews();
             services.AddInfrastructure();

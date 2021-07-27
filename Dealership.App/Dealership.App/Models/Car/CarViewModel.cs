@@ -11,8 +11,8 @@ namespace Dealership.App.Models.Car
     public class CarViewModel
     {
         public int CarId { get; set; }
-        public CarBrandViewModel CarBrand { get; set; }
-        public CarModelViewModel CarModel { get; set; }
+        public int CarBrandId { get; set; }
+        public int CarModelId { get; set; }
         public IEnumerable<CarBrandViewModel> CarBrands { get; set; }
         public IEnumerable<CarModelViewModel> CarModels { get; set; }
         public string ImageName { get; set; }

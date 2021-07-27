@@ -13,8 +13,7 @@ namespace Dealership.App.Mappers
         public CarProfile()
         {
             CreateMap<CarViewModel, Car>()
-                .ForMember(d => d.Brand, (o) => o.MapFrom(src => src.CarBrand))
-                .ForMember(d => d.Model, (o) => o.MapFrom(src => src.CarModel))
+                .ForMember(d => d.CarId, (o) => o.MapFrom(src => src.CarId))
                 .ForMember(d => d.ImageName, (o) => o.MapFrom(src => src.ImageName))
                 .ForMember(d => d.ImageFile, (o) => o.MapFrom(src => src.Image));
         }
