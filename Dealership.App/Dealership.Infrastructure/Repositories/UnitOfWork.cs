@@ -14,12 +14,14 @@ namespace Dealership.Infrastructure.Repositories
     {
         public IBrandRepository Brands { get; }
         public ICarModelRepository Models { get; }
+        public ICarRepository Cars { get; }
         private readonly ApplicationDbContext _DealershipDb;
 
-        public UnitOfWork(IBrandRepository brands, ICarModelRepository models, ApplicationDbContext dealershipDb)
+        public UnitOfWork(IBrandRepository brands, ICarModelRepository models, ICarRepository cars, ApplicationDbContext dealershipDb)
         {
             this.Brands = brands;
             this.Models = models;
+            this.Cars = cars;
             this._DealershipDb = dealershipDb;
         }
 

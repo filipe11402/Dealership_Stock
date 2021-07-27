@@ -11,6 +11,7 @@ namespace Dealership.Domain.Interfaces
     {
         IBrandRepository Brands { get; }
         ICarModelRepository Models { get; }
+        ICarRepository Cars { get; }
         int Commit();
     }
 }
