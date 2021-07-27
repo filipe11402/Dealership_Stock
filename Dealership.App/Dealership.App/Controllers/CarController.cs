@@ -22,14 +22,16 @@ namespace Dealership.App.Controllers
             this._unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IEnumerable<CarViewModel> carsToView = await this._mediator.Send(new GetCarsQuery());
+
+            return View(carsToView);
         }
 
         public async Task<IActionResult> Create() 
         {
-            CarViewModel carModelToCreate = new()
+            CreateCarViewModel carModelToCreate = new()
             {
                 CarBrands = await this._mediator.Send(new GetCarBrandsQuery()),
                 CarModels = await this._mediator.Send(new GetCarModelsQuery())
@@ -38,7 +40,7 @@ namespace Dealership.App.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost(CarViewModel newCar) 
+        public async Task<IActionResult> CreatePost(CreateCarViewModel newCar) 
         {
             var response = await this._mediator.Send(new CreateCarCommand(newCar));
 

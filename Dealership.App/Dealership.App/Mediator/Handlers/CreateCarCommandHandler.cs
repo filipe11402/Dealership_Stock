@@ -25,14 +25,16 @@ namespace Dealership.App.Mediator.Handlers
 
         public async Task<bool> Handle(CreateCarCommand request, CancellationToken cancellationToken)
         {
-            string path = Path.GetFullPath("wwwroot/images");
+            //string path = Path.GetFullPath("wwwroot/images");
 
-            using (var fileStream = new FileStream(path, FileMode.Create)) 
-            {
-                await request.NewCar.Image.CopyToAsync(fileStream);
-            }
+            //using (var fileStream = new FileStream(path, FileMode.Create)) 
+            //{
+            //    await request.NewCar.Image.CopyToAsync(fileStream);
+            //}
 
             Car newCar = this._mapper.Map<Car>(request.NewCar);
+            newCar.Brand = await this._unitOfWork.Brands.GetById(request.NewCar.CarBrandId);
+            newCar.Model = await this._unitOfWork.Models.GetById(request.NewCar.CarModelId);
             var response = await this._unitOfWork.Cars.Add(newCar);
             this._unitOfWork.Commit();
 

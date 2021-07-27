@@ -1,5 +1,7 @@
 ﻿using Dealership.Domain.Entities;
 using Dealership.Domain.Repositories;
+using Dealership.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,17 @@ namespace Dealership.Infrastructure.Repositories
 {
     public class CarRepository : ICarRepository
     {
-        public Task<bool> Add(Car newCar)
+        private readonly ApplicationDbContext _dealershipDb;
+
+        public CarRepository(ApplicationDbContext dealershipDb)
         {
-            throw new NotImplementedException();
+            this._dealershipDb = dealershipDb;
+        }
+        public async Task<bool> Add(Car newCar)
+        {
+            var response = await this._dealershipDb.Cars.AddAsync(newCar);
+            //needs refactor, testing purposes
+            return true;
         }
 
         public Task<bool> Delete(int carId)
@@ -20,9 +30,9 @@ namespace Dealership.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Car>> GetAll()
+        public async Task<IEnumerable<Car>> GetAll()
         {
-            throw new NotImplementedException();
+            return this._dealershipDb.Cars.Include(car => car.Brand).Include(car => car.Model);
         }
 
         public Task<Car> GetById(int? carId)

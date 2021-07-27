@@ -9,9 +9,9 @@ namespace Dealership.App.Mediator.Commands
 {
     public class CreateCarCommand : IRequest<bool>
     {
-        public CarViewModel NewCar { get; set; }
+        public CreateCarViewModel NewCar { get; set; }
 
-        public CreateCarCommand(CarViewModel newCar)
+        public CreateCarCommand(CreateCarViewModel newCar)
         {
             this.NewCar = newCar;
         }

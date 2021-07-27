@@ -1,4 +1,4 @@
-﻿@model Dealership.App.Models.Car.CarViewModel
+﻿@model Dealership.App.Models.Car.CreateCarViewModel
 
 <form asp-action="CreatePost" method="POST">
     <div class="form-group">
@@ -6,6 +6,14 @@
         @Html.DropDownListFor(
            carBrand => carBrand.CarBrandId,
            new SelectList(Model.CarBrands, "CarBrandId", "CarBrandName"),
+           "Select Car brand"
+        )
+    </div>
+    <div class="form-group">
+        <label for="BrandName">Brand</label>
+        @Html.DropDownListFor(
+           carBrand => carBrand.CarModelId,
+           new SelectList(Model.CarModels, "CarModelId", "CarModelName"),
            "Select Car brand"
         )
     </div>
