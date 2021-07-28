@@ -21,7 +21,11 @@ namespace Dealership.Infrastructure.Repositories
         public async Task<bool> Add(Car newCar)
         {
             var response = await this._dealershipDb.Cars.AddAsync(newCar);
-            //needs refactor, testing purposes
+            if (response == null) 
+            {
+                return false;
+            }
+
             return true;
         }
 

@@ -13,6 +13,6 @@ namespace Dealership.App.Models.Car
         public int CarId { get; set; }
         public CarModelViewModel CarModel { get; set; }
         public CarBrandViewModel CarBrand { get; set; }
-        //needs adding the image properties
+        public string ImageName { get; set; }
     }
 }
