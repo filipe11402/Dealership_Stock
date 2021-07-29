@@ -1,6 +1,6 @@
 ﻿@model Dealership.App.Models.Car.CreateCarViewModel
 
-<form asp-action="CreatePost" method="POST">
+<form asp-action="CreatePost" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="BrandName">Brand</label>
         @Html.DropDownListFor(
