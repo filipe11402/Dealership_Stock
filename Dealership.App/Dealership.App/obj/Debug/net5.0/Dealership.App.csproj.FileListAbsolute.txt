@@ -87,3 +87,4 @@ C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\Car\Create.cshtml.g.cs
 C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\Car\Index.cshtml.g.cs
+C:\Users\Filipe Encarnacao\Desktop\C#\Dealership_stock\Dealership.App\Dealership.App\obj\Debug\net5.0\Razor\Views\Car\Update.cshtml.g.cs

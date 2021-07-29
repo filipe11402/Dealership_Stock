@@ -23,7 +23,7 @@
                             <td scope="row">@car.CarBrand.CarBrandName</td>
                             <td scope="row">@car.CarModel.CarModelName</td>
                             <td scope="row"><img src="~/images/@car.ImageName" style="width: 400px;"/></td>
-                            <td><a asp-action="" asp-controller="" asp-route-Id="" class="btn btn-primary mx1">Edit</a></td>
+                            <td><a asp-action="Update" asp-controller="Car" asp-route-Id="@car.CarId" class="btn btn-primary mx1">Edit</a></td>
                             <td><a asp-action="" asp-controller="" asp-route-Id="" class="btn btn-danger mx1">Delete</a></td>
                         </tr>
                         }

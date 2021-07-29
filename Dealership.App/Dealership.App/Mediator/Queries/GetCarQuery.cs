@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Queries
 {
-    public class GetCarQuery : IRequest<CarViewModel>
+    public class GetCarQuery : IRequest<UpdateCarViewModel>
     {
         public int CarId { get; set; }
 

@@ -49,9 +49,11 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Update(int Id) 
         {
+            var carToView = await this._mediator.Send(new GetCarQuery(Id));
+            carToView.CarBrands = await this._mediator.Send(new GetCarBrandsQuery());
+            carToView.CarModels = await this._mediator.Send(new GetCarModelsQuery());
 
-
-            return View();
+            return View(carToView);
         }
     }
 }
