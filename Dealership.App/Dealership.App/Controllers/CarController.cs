@@ -46,5 +46,12 @@ namespace Dealership.App.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Update(int Id) 
+        {
+
+
+            return View();
+        }
     }
 }
