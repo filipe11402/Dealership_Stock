@@ -29,9 +29,15 @@ namespace Dealership.Infrastructure.Repositories
             return true;
         }
 
-        public Task<bool> Delete(int carId)
+        public async Task<bool> Delete(int carId)
         {
-            throw new NotImplementedException();
+            var carToDelete = await GetById(carId);
+            if (carToDelete == null) 
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public async Task<IEnumerable<Car>> GetAll()
@@ -39,14 +45,22 @@ namespace Dealership.Infrastructure.Repositories
             return this._dealershipDb.Cars.Include(car => car.Brand).Include(car => car.Model);
         }
 
-        public Task<Car> GetById(int? carId)
+        public async Task<Car> GetById(int? carId)
         {
-            throw new NotImplementedException();
+            var fetchedCar = await this._dealershipDb.Cars.FindAsync(carId);
+            if (fetchedCar == null) 
+            {
+                return null;
+            }
+
+            return fetchedCar;
         }
 
         public bool Update(Car updatedCar)
         {
-            throw new NotImplementedException();
+            var response = this._dealershipDb.Cars.Update(updatedCar);
+
+            return true;
         }
     }
 }
