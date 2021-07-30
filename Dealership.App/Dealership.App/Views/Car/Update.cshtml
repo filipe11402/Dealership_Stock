@@ -1,7 +1,8 @@
 ﻿@model Dealership.App.Models.Car.UpdateCarViewModel
 
-<form asp-action="" method="POST" enctype="multipart/form-data">
+<form asp-action="UpdatePost" method="POST" enctype="multipart/form-data">
     <div class="btn-group">
+        <input asp-for="CarId" hidden readonly/>
         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose the car brand</label>
         @Html.DropDownListFor(
            carBrand => carBrand.CarBrandId,
@@ -17,6 +18,7 @@
            new SelectList(Model.CarModels, "CarModelId", "CarModelName", Model.CarModelId),
            new { @class = "custom-select my-1 mr-sm-2", @id = "inlineFormCustomSelectPref" }
         )
+    <input asp-for="ImageName" hidden readonly/>
     </div>
 
 

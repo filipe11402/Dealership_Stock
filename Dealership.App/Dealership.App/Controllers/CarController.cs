@@ -55,5 +55,13 @@ namespace Dealership.App.Controllers
 
             return View(carToView);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePost(UpdateCarViewModel updatedCar) 
+        {
+            var updateResponse = await this._mediator.Send(new UpdateCarCommand(updatedCar));
+
+            return RedirectToAction("Index");
+        }
     }
 }
