@@ -1,4 +1,5 @@
-﻿using Dealership.App.Mediator.Commands;
+﻿using AutoMapper;
+using Dealership.App.Mediator.Commands;
 using Dealership.App.Mediator.Queries;
 using Dealership.App.Models.Car;
 using Dealership.Domain.Interfaces;
@@ -15,11 +16,14 @@ namespace Dealership.App.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CarController(IMediator mediator, IUnitOfWork unitOfWork)
+
+        public CarController(IMediator mediator, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
+            this._mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -50,16 +54,37 @@ namespace Dealership.App.Controllers
         public async Task<IActionResult> Update(int Id) 
         {
             var carToView = await this._mediator.Send(new GetCarQuery(Id));
-            carToView.CarBrands = await this._mediator.Send(new GetCarBrandsQuery());
-            carToView.CarModels = await this._mediator.Send(new GetCarModelsQuery());
+            UpdateCarViewModel updateCarModel = this._mapper.Map<UpdateCarViewModel>(carToView);
+            updateCarModel.CarBrands = await this._mediator.Send(new GetCarBrandsQuery());
+            updateCarModel.CarModels = await this._mediator.Send(new GetCarModelsQuery());
 
-            return View(carToView);
+            return View(updateCarModel);
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdatePost(UpdateCarViewModel updatedCar) 
         {
             var updateResponse = await this._mediator.Send(new UpdateCarCommand(updatedCar));
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int Id) 
+        {
+            var car = await this._mediator.Send(new GetCarQuery(Id));
+            CarViewModel carToDelete = this._mapper.Map<CarViewModel>(car);
+            if (carToDelete == null) 
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(carToDelete);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(int carToDeleteId) 
+        {
+            var deleteResponse = await this._mediator.Send(new DeleteCarCommand(carToDeleteId));
 
             return RedirectToAction("Index");
         }

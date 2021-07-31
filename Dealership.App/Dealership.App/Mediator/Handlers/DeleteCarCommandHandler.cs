@@ -22,9 +22,11 @@ namespace Dealership.App.Mediator.Handlers
             this._unitOfWork = unitOfWork;
         }
 
-        public Task<bool> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
         {
-            Car carToDelete = this._unitOfWork.Cars.GetById(request.CarId);
+            var deleteResponse = await this._unitOfWork.Cars.Delete(request.CarId);
+
+            return true;
         }
     }
 }
