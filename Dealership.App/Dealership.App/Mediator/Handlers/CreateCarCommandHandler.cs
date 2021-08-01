@@ -43,7 +43,6 @@ namespace Dealership.App.Mediator.Handlers
             newCar.Brand = await this._unitOfWork.Brands.GetById(request.NewCar.CarBrandId);
             newCar.Model = await this._unitOfWork.Models.GetById(request.NewCar.CarModelId);
             var response = await this._unitOfWork.Cars.Add(newCar);
-            this._unitOfWork.Commit();
 
             return response;
         }

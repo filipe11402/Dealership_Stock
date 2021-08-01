@@ -30,9 +30,7 @@ namespace Dealership.App.Mediator.Handlers
             DeleteImage(carToDelete.ImageName);
             var deleteResponse = await this._unitOfWork.Cars.Delete(carToDelete.CarId);
 
-            this._unitOfWork.Commit();
-
-            return true;
+            return deleteResponse;
         }
 
         private void DeleteImage(string imageName) 

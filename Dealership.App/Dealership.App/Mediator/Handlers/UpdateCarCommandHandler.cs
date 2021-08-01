@@ -46,9 +46,8 @@ namespace Dealership.App.Mediator.Handlers
             updatedCar.Model = await this._unitOfWork.Models.GetById(request.UpdatedCar.CarModelId);
 
             var response = this._unitOfWork.Cars.Update(updatedCar);
-            this._unitOfWork.Commit();
 
-            return true;
+            return response;
         }
 
         private void DeleteOldImage(string filePathToDelete) 
