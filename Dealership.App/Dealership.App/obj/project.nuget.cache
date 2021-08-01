@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "aEYi0d5IFXepn3kibFBRji8umDO7ur2US6qHhIkOV3pfslMezBPdaVpkvHi1ATlNW8WhKGR45ATPp/SgK0VRHw==",
+  "dgSpecHash": "2O8PlSG9+eep04ejEAzaZAFLwSx29Zi0jjWsHEsz1rObQP/I+Pv/99JZxWo7BU0AcAwFFO65pf62sYFelIEWxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Filipe Encarnacao\\Desktop\\C#\\Dealership_stock\\Dealership.App\\Dealership.App\\Dealership.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",
+    "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.0\\fluentvalidation.aspnetcore.10.3.0.nupkg.sha512",
+    "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.0\\fluentvalidation.dependencyinjectionextensions.10.3.0.nupkg.sha512",
     "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Filipe Encarnacao\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

@@ -1,8 +1,10 @@
 using AutoMapper;
+using Dealership.App.FluentValidation;
 using Dealership.App.Mappers;
 using Dealership.App.Models;
 using Dealership.Domain.Entities;
 using Dealership.Infrastructure;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +37,10 @@ namespace Dealership.App
                 typeof(CarModelProfile),
                 typeof(CarProfile)
                 );
+
+            services.AddMvc()
+                .AddFluentValidation(fluent => fluent.RegisterValidatorsFromAssemblyContaining<CarBrandValidator>());
+
             services.AddControllersWithViews();
             services.AddInfrastructure();
             services.AddMediatR(Assembly.GetExecutingAssembly());
