@@ -20,8 +20,8 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<bool> Add(CarModel newCarModel)
         {
-            var response = await this._dealershipDb.Models.AddAsync(newCarModel);
-            if (response == null) 
+            var addedModel = await this._dealershipDb.Models.AddAsync(newCarModel);
+            if (addedModel == null) 
             {
                 return false;
             }
@@ -31,12 +31,13 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<bool> Delete(int carModelId)
         {
-            CarModel carModelDto = await GetById(carModelId);
-            if (carModelDto == null) 
+            var carModel = await GetById(carModelId);
+            if (carModel == null) 
             {
                 return false;
             }
-            var response = this._dealershipDb.Models.Remove(carModelDto);
+
+            this._dealershipDb.Models.Remove(carModel);
 
             return true;
         }
@@ -48,18 +49,18 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<CarModel> GetById(int? carModelId)
         {
-            CarModel fetchedCarModel = await this._dealershipDb.Models.FindAsync(carModelId);
-            if (fetchedCarModel == null) 
+            var carModel = await this._dealershipDb.Models.FindAsync(carModelId);
+            if (carModel == null) 
             {
                 return null;
             }
 
-            return fetchedCarModel;
+            return carModel;
         }
 
         public bool Update(CarModel updatedCarModel)
         {
-            var response = this._dealershipDb.Models.Update(updatedCarModel);
+            this._dealershipDb.Models.Update(updatedCarModel);
 
             return true;
         }
