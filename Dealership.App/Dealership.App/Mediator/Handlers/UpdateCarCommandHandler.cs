@@ -25,19 +25,22 @@ namespace Dealership.App.Mediator.Handlers
 
         public async Task<bool> Handle(UpdateCarCommand request, CancellationToken cancellationToken)
         {
-            var rootPath = Path.GetFullPath("wwwroot/images");
-            var updateCarFileName = Path.GetFileNameWithoutExtension(request.UpdatedCar.Image.FileName);
-            var updatedCarFileExtension = Path.GetExtension(request.UpdatedCar.Image.FileName);
-
-            string pathToDeleteOldImage = Path.Combine(rootPath, request.UpdatedCar.ImageName);
-            DeleteOldImage(pathToDeleteOldImage);
-
-            request.UpdatedCar.ImageName = updateCarFileName + DateTime.Now.ToString("ddMMyy") + updatedCarFileExtension;
-            string pathToInsertImage = Path.Combine(rootPath, request.UpdatedCar.ImageName);
-
-            using (var fileStream = new FileStream(pathToInsertImage, FileMode.Create)) 
+            if (request.UpdatedCar.Image != null) 
             {
-                await request.UpdatedCar.Image.CopyToAsync(fileStream);
+                var rootPath = Path.GetFullPath("wwwroot/images");
+                var updateCarFileName = Path.GetFileNameWithoutExtension(request.UpdatedCar.Image.FileName);
+                var updatedCarFileExtension = Path.GetExtension(request.UpdatedCar.Image.FileName);
+
+                string pathToDeleteOldImage = Path.Combine(rootPath, request.UpdatedCar.ImageName);
+                DeleteOldImage(pathToDeleteOldImage);
+
+                request.UpdatedCar.ImageName = updateCarFileName + DateTime.Now.ToString("ddMMyy") + updatedCarFileExtension;
+                string pathToInsertImage = Path.Combine(rootPath, request.UpdatedCar.ImageName);
+
+                using (var fileStream = new FileStream(pathToInsertImage, FileMode.Create))
+                {
+                    await request.UpdatedCar.Image.CopyToAsync(fileStream);
+                }
             }
 
             Car updatedCar = this._mapper.Map<Car>(request.UpdatedCar);
