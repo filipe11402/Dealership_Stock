@@ -22,6 +22,14 @@ namespace Dealership.App.Mappers
 
             CreateMap<CreateCarBrandViewModel, CarBrand>()
                 .ForMember(d => d.CarBrandName, (o) => o.MapFrom(o => o.CarBrandName));
+
+            CreateMap<CarBrand, UpdateCarBrandViewModel>()
+                .ForMember(d => d.CarBrandId, (o) => o.MapFrom(src => src.CarBrandId))
+                .ForMember(d => d.CarBrandName, (o) => o.MapFrom(src => src.CarBrandName));
+
+            CreateMap<UpdateCarBrandViewModel, CarBrand>()
+                .ForMember(d => d.CarBrandId, (o) => o.MapFrom(src => src.CarBrandId))
+                .ForMember(d => d.CarBrandName, (o) => o.MapFrom(src => src.CarBrandName));
         }
     }
 }

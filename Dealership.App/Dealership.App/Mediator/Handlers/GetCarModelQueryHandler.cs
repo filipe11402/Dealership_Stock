@@ -12,23 +12,20 @@ using System.Threading.Tasks;
 
 namespace Dealership.App.Mediator.Handlers
 {
-    public class GetCarModelQueryHandler : IRequestHandler<GetCarModelQuery, CarModelViewModel>
+    public class GetCarModelQueryHandler : IRequestHandler<GetCarModelQuery, CarModel>
     {
-        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public GetCarModelQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public GetCarModelQueryHandler(IUnitOfWork unitOfWork)
         {
-            this._mapper = mapper;
             this._unitOfWork = unitOfWork;
         }
 
-        public async Task<CarModelViewModel> Handle(GetCarModelQuery request, CancellationToken cancellationToken)
+        public async Task<CarModel> Handle(GetCarModelQuery request, CancellationToken cancellationToken)
         {
             CarModel carModel = await this._unitOfWork.Models.GetById(request.CarModelId);
-            CarModelViewModel carModelToUpdate = this._mapper.Map<CarModelViewModel>(carModel);
 
-            return carModelToUpdate;
+            return carModel;
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Dealership.Infrastructure.Repositories
             {
                 return false;
             }
+            this._dealershipDb.Remove(carToDelete);
 
             return true;
         }
@@ -47,7 +48,9 @@ namespace Dealership.Infrastructure.Repositories
 
         public async Task<Car> GetById(int? carId)
         {
-            var fetchedCar = await this._dealershipDb.Cars.FindAsync(carId);
+            var fetchedCar = await this._dealershipDb.Cars.FirstOrDefaultAsync(car => car.CarId == carId);
+            fetchedCar.Brand = await this._dealershipDb.Brands.FirstOrDefaultAsync(car => car.Cars.Contains(fetchedCar));
+            fetchedCar.Model = await this._dealershipDb.Models.FirstOrDefaultAsync(car => car.Cars.Contains(fetchedCar));
             if (fetchedCar == null) 
             {
                 return null;

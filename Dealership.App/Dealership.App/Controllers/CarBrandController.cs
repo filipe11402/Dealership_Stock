@@ -1,6 +1,8 @@
-﻿using Dealership.App.Mediator.Commands;
+﻿using AutoMapper;
+using Dealership.App.Mediator.Commands;
 using Dealership.App.Mediator.Queries;
 using Dealership.App.Models.CarBrand;
+using Dealership.Domain.Entities;
 using Dealership.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +17,13 @@ namespace Dealership.App.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CarBrandController(IMediator mediator, IUnitOfWork unitOfWork)
+        public CarBrandController(IMediator mediator, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
+            this._mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -48,13 +52,14 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Update(int? Id)
         {
-            CarBrandViewModel brand = await this._mediator.Send(new GetCarBrandQuery(Id));
+            CarBrand brand = await this._mediator.Send(new GetCarBrandQuery(Id));
+            UpdateCarBrandViewModel brandToView = this._mapper.Map<UpdateCarBrandViewModel>(brand);
 
-            return View(brand);
+            return View(brandToView);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdatePost(CarBrandViewModel updatedBrand) 
+        public async Task<IActionResult> UpdatePost(UpdateCarBrandViewModel updatedBrand) 
         {
             var response = await this._mediator.Send(new UpdateCarBrandCommand(updatedBrand));
             if (response) 
@@ -68,7 +73,8 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Delete(int Id) 
         {
-            CarBrandViewModel brandToDelete = await this._mediator.Send(new GetCarBrandQuery(Id));
+            CarBrand brand = await this._mediator.Send(new GetCarBrandQuery(Id));
+            CarBrandViewModel brandToDelete = this._mapper.Map<CarBrandViewModel>(brand);
 
             return View(brandToDelete);
         }

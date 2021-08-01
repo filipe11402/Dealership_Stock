@@ -9,9 +9,9 @@ namespace Dealership.App.Mediator.Commands
 {
     public class UpdateCarModelCommand : IRequest<bool>
     {
-        public CarModelViewModel UpdatedCarModel { get; }
+        public UpdateCarModelViewModel UpdatedCarModel { get; }
 
-        public UpdateCarModelCommand(CarModelViewModel updatedCarModel)
+        public UpdateCarModelCommand(UpdateCarModelViewModel updatedCarModel)
         {
             this.UpdatedCarModel = updatedCarModel;
         }

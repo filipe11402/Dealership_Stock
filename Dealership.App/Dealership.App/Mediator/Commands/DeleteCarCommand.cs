@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Dealership.App.Models.Car;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace Dealership.App.Mediator.Commands
 {
     public class DeleteCarCommand : IRequest<bool>
     {
-        public int CarId { get; }
+        public CarViewModel CarToDelete { get; }
 
-        public DeleteCarCommand(int carToDeleteId)
+        public DeleteCarCommand(CarViewModel carToDelete)
         {
-            this.CarId = carToDeleteId;
+            this.CarToDelete = carToDelete;
         }
     }
 }

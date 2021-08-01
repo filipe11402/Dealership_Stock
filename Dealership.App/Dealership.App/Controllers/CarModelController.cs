@@ -1,6 +1,8 @@
-﻿using Dealership.App.Mediator.Commands;
+﻿using AutoMapper;
+using Dealership.App.Mediator.Commands;
 using Dealership.App.Mediator.Queries;
 using Dealership.App.Models.CarModel;
+using Dealership.Domain.Entities;
 using Dealership.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +17,13 @@ namespace Dealership.App.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CarModelController(IMediator mediator, IUnitOfWork unitOfWork)
+        public CarModelController(IMediator mediator, IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._mediator = mediator;
             this._unitOfWork = unitOfWork;
+            this._mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -49,17 +53,18 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Update(int Id) 
         {
-            CarModelViewModel carModelToUpdate = await this._mediator.Send(new GetCarModelQuery(Id));
-            if (carModelToUpdate == null) 
+            CarModel carModel = await this._mediator.Send(new GetCarModelQuery(Id));
+            if (carModel == null) 
             {
                 return RedirectToAction("Index");
             }
+            UpdateCarModelViewModel carModelToUpdate = this._mapper.Map<UpdateCarModelViewModel>(carModel);
 
             return View(carModelToUpdate);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdatePost(CarModelViewModel updatedCarModel) 
+        public async Task<IActionResult> UpdatePost(UpdateCarModelViewModel updatedCarModel) 
         {
             var response = await this._mediator.Send(new UpdateCarModelCommand(updatedCarModel));
             if (response)
@@ -73,11 +78,12 @@ namespace Dealership.App.Controllers
 
         public async Task<IActionResult> Delete(int Id)
         {
-            CarModelViewModel carModelToDelete = await this._mediator.Send(new GetCarModelQuery(Id));
-            if (carModelToDelete == null) 
+            CarModel carModel = await this._mediator.Send(new GetCarModelQuery(Id));
+            if (carModel == null) 
             {
                 return RedirectToAction("Index");
             }
+            CarModelViewModel carModelToDelete = this._mapper.Map<CarModelViewModel>(carModel);
 
             return View(carModelToDelete);
         }

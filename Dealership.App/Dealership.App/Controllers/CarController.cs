@@ -82,9 +82,9 @@ namespace Dealership.App.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeletePost(int carToDeleteId) 
+        public async Task<IActionResult> DeletePost(CarViewModel carToDelete)
         {
-            var deleteResponse = await this._mediator.Send(new DeleteCarCommand(carToDeleteId));
+            var deleteResponse = await this._mediator.Send(new DeleteCarCommand(carToDelete));
 
             return RedirectToAction("Index");
         }
