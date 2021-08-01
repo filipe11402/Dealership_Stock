@@ -1,0 +1,10 @@
+﻿@model Dealership.App.Models.CarModel.CreateCarModelViewModel
+
+<form asp-action="CreatePost" method="POST">
+    <div class="form-group">
+        <label for="BrandName">Model Name</label>
+        <input asp-for="CarModelName" class="form-control col-4" id="BrandName" placeholder="Enter Car Model Name">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

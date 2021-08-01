@@ -1,0 +1,14 @@
+﻿@model Dealership.App.Models.Car.CarViewModel
+
+<form asp-action="DeletePost" method="POST">
+    <div class="form-group">
+        <input asp-for="@Model.CarId" hidden readonly />
+        <label for="BrandName">Brand Name</label>
+        <input disabled readonly class="form-control col-4" id="BrandName" placeholder="@Model.CarBrand.CarBrandName">
+        <label for="ModelName">Model Name</label>
+        <input disabled readonly class="form-control col-4" id="ModelName" placeholder="@Model.CarModel.CarModelName">
+        <input asp-for="@Model.ImageName" hidden readonly>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button asp-action="Index" asp-controller="Car" class="btn btn-warning">I changed my mind!</button>
+</form>
