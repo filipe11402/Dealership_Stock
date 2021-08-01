@@ -25,8 +25,8 @@ namespace Dealership.Infrastructure.Migrations
                     b.Property<int?>("BrandCarBrandId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("BLOB");
+                    b.Property<string>("ImageName")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("ModelCarModelId")
                         .HasColumnType("INTEGER");

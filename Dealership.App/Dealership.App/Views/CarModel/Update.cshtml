@@ -1,0 +1,10 @@
+﻿@model Dealership.App.Models.CarModel.UpdateCarModelViewModel
+
+<form asp-action="UpdatePost" method="POST">
+    @Html.HiddenFor(model => model.CarModelId, new { @readonly = "true" })
+    <div class="form-group">
+        <label for="ModelName">Model Name</label>
+        <input asp-for="CarModelName" class="form-control col-4" id="ModelName">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

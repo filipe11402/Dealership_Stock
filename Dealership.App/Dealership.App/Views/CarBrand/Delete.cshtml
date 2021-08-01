@@ -1,0 +1,11 @@
+﻿@model Dealership.App.Models.CarBrand.CarBrandViewModel
+
+<form asp-action="DeletePost" method="POST">
+    <div class="form-group">
+        <input asp-for="@Model.CarBrandId" hidden readonly/>
+        <label for="BrandName">Brand Name</label>
+        <input disabled readonly class="form-control col-4" id="BrandName" placeholder="@Model.CarBrandName">
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button asp-action="Index" asp-controller="Brand" class="btn btn-warning">I changed my mind!</button>
+</form>

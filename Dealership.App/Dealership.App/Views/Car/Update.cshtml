@@ -1,0 +1,35 @@
+﻿@model Dealership.App.Models.Car.UpdateCarViewModel
+
+<form asp-action="UpdatePost" method="POST" enctype="multipart/form-data">
+    <div class="btn-group">
+        <input asp-for="CarId" hidden readonly/>
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose the car brand</label>
+        @Html.DropDownListFor(
+           carBrand => carBrand.CarBrandId,
+           new SelectList(Model.CarBrands, "CarBrandId", "CarBrandName", Model.CarBrandId),
+           new { @class = "custom-select my-1 mr-sm-2", @id = "inlineFormCustomSelectPref" }
+        )
+    </div>
+    <br>
+    <div class="btn-group">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose the car model</label>
+        @Html.DropDownListFor(
+           carBrand => carBrand.CarModelId,
+           new SelectList(Model.CarModels, "CarModelId", "CarModelName", Model.CarModelId),
+           new { @class = "custom-select my-1 mr-sm-2", @id = "inlineFormCustomSelectPref" }
+        )
+    <input asp-for="ImageName" placeholder="@Model.ImageName" hidden readonly/>
+    </div>
+
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input asp-for="Image" class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

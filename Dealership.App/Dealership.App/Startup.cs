@@ -1,4 +1,9 @@
+using AutoMapper;
+using Dealership.App.Mappers;
+using Dealership.App.Models;
+using Dealership.Domain.Entities;
 using Dealership.Infrastructure;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Dealership.App
@@ -24,8 +30,15 @@ namespace Dealership.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(
+                typeof(CarBrandProfile),
+                typeof(CarModelProfile),
+                typeof(CarProfile)
+                );
             services.AddControllersWithViews();
             services.AddInfrastructure();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
