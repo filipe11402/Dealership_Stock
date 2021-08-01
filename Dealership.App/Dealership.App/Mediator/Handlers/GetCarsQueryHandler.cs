@@ -25,10 +25,10 @@ namespace Dealership.App.Mediator.Handlers
 
         public async Task<IEnumerable<CarViewModel>> Handle(GetCarsQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<Car> populatedCars = await this._unitOfWork.Cars.GetAll();
-            IEnumerable<CarViewModel> carsToView = this._mapper.Map<IEnumerable<CarViewModel>>(populatedCars);
+            IEnumerable<Car> cars = await this._unitOfWork.Cars.GetAll();
+            IEnumerable<CarViewModel> carsVm = this._mapper.Map<IEnumerable<CarViewModel>>(cars);
 
-            return carsToView;
+            return carsVm;
         }
     }
 }

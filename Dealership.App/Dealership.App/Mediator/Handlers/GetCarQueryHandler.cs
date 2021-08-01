@@ -25,13 +25,9 @@ namespace Dealership.App.Mediator.Handlers
 
         public async Task<Car> Handle(GetCarQuery request, CancellationToken cancellationToken)
         {
-            Car fetchedCar = await this._unitOfWOrk.Cars.GetById(request.CarId);
-            if (fetchedCar == null) 
-            {
-                return null;
-            }
+            Car car = await this._unitOfWOrk.Cars.GetById(request.CarId);
 
-            return fetchedCar;
+            return car;
         }
     }
 }

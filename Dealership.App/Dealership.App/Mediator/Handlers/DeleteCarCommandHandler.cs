@@ -26,8 +26,10 @@ namespace Dealership.App.Mediator.Handlers
         public async Task<bool> Handle(DeleteCarCommand request, CancellationToken cancellationToken)
         {
             Car carToDelete = this._mapper.Map<Car>(request.CarToDelete);
+
             DeleteImage(carToDelete.ImageName);
             var deleteResponse = await this._unitOfWork.Cars.Delete(carToDelete.CarId);
+
             this._unitOfWork.Commit();
 
             return true;

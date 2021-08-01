@@ -25,9 +25,9 @@ namespace Dealership.App.Mediator.Handlers
         public async Task<IEnumerable<CarBrandViewModel>> Handle(GetCarBrandsQuery request, CancellationToken cancellationToken)
         {
             IEnumerable<CarBrand> carBrands = await this._unitOfWork.Brands.GetAll();
-            IEnumerable<CarBrandViewModel> carBrandsToView = this._mapper.Map<IEnumerable<CarBrandViewModel>>(carBrands);
+            IEnumerable<CarBrandViewModel> carBrandsVm = this._mapper.Map<IEnumerable<CarBrandViewModel>>(carBrands);
 
-            return carBrandsToView;
+            return carBrandsVm;
         }
     }
 }

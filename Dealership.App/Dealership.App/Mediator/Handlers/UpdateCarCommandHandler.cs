@@ -39,9 +39,12 @@ namespace Dealership.App.Mediator.Handlers
             {
                 await request.UpdatedCar.Image.CopyToAsync(fileStream);
             }
+
             Car updatedCar = this._mapper.Map<Car>(request.UpdatedCar);
+
             updatedCar.Brand = await this._unitOfWork.Brands.GetById(request.UpdatedCar.CarBrandId);
             updatedCar.Model = await this._unitOfWork.Models.GetById(request.UpdatedCar.CarModelId);
+
             var response = this._unitOfWork.Cars.Update(updatedCar);
             this._unitOfWork.Commit();
 
