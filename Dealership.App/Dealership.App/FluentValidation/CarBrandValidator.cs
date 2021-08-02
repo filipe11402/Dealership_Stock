@@ -9,5 +9,10 @@ namespace Dealership.App.FluentValidation
 {
     public class CarBrandValidator : AbstractValidator<CreateCarBrandViewModel>
     {
+        public CarBrandValidator()
+        {
+            RuleFor(brand => brand.CarBrandName).NotNull()
+                .WithMessage("Car Brand needs to have a name");
+        }
     }
 }

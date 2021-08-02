@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
+using Dealership.App.FluentValidation;
 using Dealership.App.Mediator.Commands;
 using Dealership.App.Mediator.Queries;
 using Dealership.App.Models.CarBrand;
 using Dealership.Domain.Entities;
 using Dealership.Domain.Interfaces;
+using FluentValidation.AspNetCore;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -41,13 +44,18 @@ namespace Dealership.App.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreateCarBrandViewModel newBrand) 
         {
-            var response = await _mediator.Send(new CreateCarBrandCommand(newBrand));
-            if (response)
+            if (ModelState.IsValid)
             {
-                this._unitOfWork.Commit();
+                var response = await _mediator.Send(new CreateCarBrandCommand(newBrand));
+                if (response)
+                {
+                    this._unitOfWork.Commit();
+                }
+
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
 
         public async Task<IActionResult> Update(int? Id)
