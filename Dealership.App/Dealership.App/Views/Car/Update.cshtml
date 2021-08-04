@@ -9,6 +9,7 @@
            new SelectList(Model.CarBrands, "CarBrandId", "CarBrandName", Model.CarBrandId),
            new { @class = "custom-select my-1 mr-sm-2", @id = "inlineFormCustomSelectPref" }
         )
+        <span asp-validation-for="CarBrandId" class="text-danger"></span>
     </div>
     <br>
     <div class="btn-group">
@@ -18,7 +19,8 @@
            new SelectList(Model.CarModels, "CarModelId", "CarModelName", Model.CarModelId),
            new { @class = "custom-select my-1 mr-sm-2", @id = "inlineFormCustomSelectPref" }
         )
-    <input asp-for="ImageName" placeholder="@Model.ImageName" hidden readonly/>
+        <span asp-validation-for="CarModelId" class="text-danger"></span>
+        <input asp-for="ImageName" placeholder="@Model.ImageName" hidden readonly />
     </div>
 
 
@@ -30,6 +32,7 @@
             <input asp-for="Image" class="custom-file-input" id="inputGroupFile01">
             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
         </div>
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
