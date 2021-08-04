@@ -5,6 +5,7 @@
     <div class="form-group">
         <label for="ModelName">Model Name</label>
         <input asp-for="CarModelName" class="form-control col-4" id="ModelName">
+        <span asp-validation-for="CarModelName" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

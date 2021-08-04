@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dealership.App.FluentValidation
+namespace Dealership.App.FluentValidation.CarBrand
 {
-    public class CarBrandValidator : AbstractValidator<CreateCarBrandViewModel>
+    public class CreateCarBrandValidator : AbstractValidator<CreateCarBrandViewModel>
     {
-        public CarBrandValidator()
+        public CreateCarBrandValidator()
         {
             RuleFor(brand => brand.CarBrandName).NotNull()
-                .WithMessage("Car Brand needs to have a name");
+                .WithMessage("Car brand name cant be empty");
         }
     }
 }

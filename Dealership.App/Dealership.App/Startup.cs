@@ -39,7 +39,7 @@ namespace Dealership.App
                 );
 
             services.AddMvc()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CarBrandValidator>());
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddControllersWithViews();
             services.AddInfrastructure();

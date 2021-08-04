@@ -44,7 +44,7 @@ namespace Dealership.App.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreateCarBrandViewModel newBrand) 
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 var response = await _mediator.Send(new CreateCarBrandCommand(newBrand));
                 if (response)
@@ -55,7 +55,7 @@ namespace Dealership.App.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Create");
+            return View("Create");
         }
 
         public async Task<IActionResult> Update(int? Id)
@@ -70,13 +70,17 @@ namespace Dealership.App.Controllers
         public async Task<IActionResult> UpdatePost(UpdateCarBrandViewModel updatedBrand) 
         {
             var response = await this._mediator.Send(new UpdateCarBrandCommand(updatedBrand));
-            if (response) 
+
+            if (ModelState.IsValid) 
             {
-                this._unitOfWork.Commit();
-                return RedirectToAction("Index");
+                if (response)
+                {
+                    this._unitOfWork.Commit();
+                    return RedirectToAction("Index");
+                }
             }
 
-            return RedirectToAction("Update");
+            return View("Update");
         }
 
         public async Task<IActionResult> Delete(int Id) 

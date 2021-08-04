@@ -5,7 +5,7 @@
     <div class="form-group">
         <label for="BrandName">Brand Name</label>
         <input asp-for="CarBrandName" class="form-control col-4" id="BrandName" placeholder="Enter Car Brand name" />
-        <span class = "text-danger" asp-validation-for="CarBrandName"></span>
+        <span asp-validation-for="CarBrandName" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
